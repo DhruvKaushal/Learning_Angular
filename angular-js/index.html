@@ -9,12 +9,14 @@
   <body ng-init="numbers=['one', 'two', 'three']">
     <h1>Hello</h1>
     <input type="text" ng-model="favMeal" placeholder="Enter your fav meal">
-    <p>Your fav meal is {{numbers}} </p>
-    <ul>
-      <li ng-repeat="number in numbers">{{number}}</li>
-    </ul>
+    
     <div ng-controller="myAppController">
-        <p>{{message}}</p>
+      <input type="text" ng-model="search">
+        <ul>
+          <li ng-repeat="ninja in ninjas | orderBy: '-name' | filter: search">
+            {{ninja.name}} - {{ninja.rate | currency:'&#8377;'}}
+          </li>
+        </ul>
     </div>
   </body>
 </html>
